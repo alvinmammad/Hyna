@@ -1,0 +1,572 @@
+﻿@model Hyna.ViewModel.Viewmodel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="faq-page-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="faq-tab">
+                    <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                        @foreach (var faqCategory in Model.FAQcategories)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link active" id="pills-service-tab" data-toggle="pill" href="#pills-service" role="tab" aria-controls="pills-service" aria-selected="true">@faqCategory.Name</a>
+                            </li>
+
+                        }
+
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        <!-- Start Tab Privacy -->
+                        <div class="tab-pane fade show active" id="pills-service" role="tabpanel" aria-labelledby="pills-service-tab">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="faq-left">
+                                        <div class="faq-accordion">
+                                            <div class="accordion" id="accordionHyna">
+                                                <!-- Single Faq -->
+                                                @foreach (var faq in Model.FAQs)
+                                                {
+                                                    <div class="card">
+                                                        <div class="card-header" id="headingOne">
+                                                            <h5 class="mb-0">
+                                                                <button class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                                    @faq.Question
+                                                                </button>
+                                                            </h5>
+                                                        </div>
+                                                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionHyna">
+                                                            <div class="card-body">
+                                                                @faq.Answer
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+
+                                                <!-- Single Faq -->
+
+                                            </div>
+                                            <!-- End Accordion -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="faq-right">
+                                        <div class="faq-accordion">
+                                            <div class="accordion" id="accordionHyna1">
+                                                @foreach (var leftFAQ in Model.FAQs)
+                                                {
+                                                    <div class="card">
+                                                        <div class="card-header" id="headingOne">
+                                                            <h5 class="mb-0">
+                                                                <button class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                                  @leftFAQ.Question
+                                                                </button>
+                                                            </h5>
+                                                        </div>
+                                                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionHyna">
+                                                            <div class="card-body">
+                                                              @leftFAQ.Answer
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                }
+                                                <!-- Single Faq -->
+                                             
+                                                <!-- Single Faq -->
+
+                                            </div>
+                                            <!-- End Accordion -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Tab Privacy -->
+                        <!-- Start Tab Carrier -->
+                        @*<div class="tab-pane fade" id="pills-carrier" role="tabpanel" aria-labelledby="pills-carrier-tab">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="faq-left">
+                                        <div class="faq-accordion">
+                                            <div class="accordion" id="accordionHyna2">
+                                                <!-- Single Faq -->
+                                                <div class="card">
+                                                    <div class="card-header" id="carrierOne">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsecarrier1" aria-expanded="true" aria-controls="collapsecarrier1">
+                                                                Which do you like better, beer or wine?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapsecarrier1" class="collapse" aria-labelledby="carrierOne" data-parent="#accordionHyna2">
+                                                        <div class="card-body">
+                                                            Ligula posuere mauris. Nulla vel magnis lorem ipsum maunostrud ornare mus cum fugit eos mi. Tortor fringilla lectus fringilla aliquam, quis leo tcunt rutrum ultricies ipsum aliquet dapibus.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Single Faq -->
+                                                <div class="card">
+                                                    <div class="card-header" id="carrierTwo">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsecarrier2" aria-expanded="false" aria-controls="collapsecarrier2">
+                                                                Have you ever been to Africa?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapsecarrier2" class="collapse" aria-labelledby="carrierTwo" data-parent="#accordionHyna2">
+                                                        <div class="card-body">
+                                                            Ligula posuere mauris. Nulla vel magnis lorem ipsum maunostrud ornare mus cum fugit eos mi. Tortor fringilla lectus fringilla aliquam, quis leo tcunt rutrum ultricies ipsum aliquet dapibus.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Single Faq -->
+                                                <div class="card">
+                                                    <div class="card-header" id="carrierThree">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn-link" type="button" data-toggle="collapse" data-target="#collapsecarrier3" aria-expanded="false" aria-controls="collapsecarrier3">
+                                                                What is the strangest thing you've eaten?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapsecarrier3" class="collapse show" aria-labelledby="carrierThree" data-parent="#accordionHyna2">
+                                                        <div class="card-body">
+                                                            Ligula posuere mauris. Nulla vel magnis lorem ipsum maunostrud ornare mus cum fugit eos mi. Tortor fringilla lectus fringilla aliquam, quis leo tcunt rutrum ultricies ipsum aliquet dapibus.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Single Faq -->
+                                                <div class="card">
+                                                    <div class="card-header" id="carrierFour">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsecarrier4" aria-expanded="false" aria-controls="collapsecarrier4">
+                                                                Have you ever been skiing?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapsecarrier4" class="collapse" aria-labelledby="carrierFour" data-parent="#accordionHyna2">
+                                                        <div class="card-body">
+                                                            Ligula posuere mauris. Nulla vel magnis lorem ipsum maunostrud ornare mus cum fugit eos mi. Tortor fringilla lectus fringilla aliquam, quis leo tcunt rutrum ultricies ipsum aliquet dapibus.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Single Faq -->
+                                                <div class="card">
+                                                    <div class="card-header" id="carrierFive">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsecarrier5" aria-expanded="false" aria-controls="collapsecarrier5">
+                                                                If you won the lottery, what would you buy?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapsecarrier5" class="collapse" aria-labelledby="carrierFive" data-parent="#accordionHyna2">
+                                                        <div class="card-body">
+                                                            Ligula posuere mauris. Nulla vel magnis lorem ipsum maunostrud ornare mus cum fugit eos mi. Tortor fringilla lectus fringilla aliquam, quis leo tcunt rutrum ultricies ipsum aliquet dapibus.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- End Accordion -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="faq-right">
+                                        <div class="faq-accordion">
+                                            <div class="accordion" id="accordionHyna3">
+                                                <!-- Single Faq -->
+                                                <div class="card">
+                                                    <div class="card-header" id="carrierSix">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn-link" type="button" data-toggle="collapse" data-target="#collapsecarrier6" aria-expanded="true" aria-controls="collapsecarrier6">
+                                                                Have you ever jumped out of a plane?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapsecarrier6" class="collapse show" aria-labelledby="carrierSix" data-parent="#accordionHyna3">
+                                                        <div class="card-body">
+                                                            Vestibulum ultrices ut lorem duis, eu ipsum orci dictum. Et ac a sapien bibendum suspendisse eget, pulvinar est pellentesget elit nec pretium ipsum, tellus cubilia velit. Consectetu nisl amet curabitur ipsum erat porta.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Single Faq -->
+                                                <div class="card">
+                                                    <div class="card-header" id="carrierSeven">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsecarrier7" aria-expanded="false" aria-controls="collapsecarrier7">
+                                                                Do you have any tattoos or piercings?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapsecarrier7" class="collapse" aria-labelledby="carrierSeven" data-parent="#accordionHyna3">
+                                                        <div class="card-body">
+                                                            Vestibulum ultrices ut lorem duis, eu ipsum orci dictum. Et ac a sapien bibendum suspendisse eget, pulvinar est pellentesget elit nec pretium ipsum, tellus cubilia velit. Consectetu nisl amet curabitur ipsum erat porta.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Single Faq -->
+                                                <div class="card">
+                                                    <div class="card-header" id="carrierEight">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsecarrier8" aria-expanded="false" aria-controls="collapsecarrier8">
+                                                                What is your favorite vacation?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapsecarrier8" class="collapse" aria-labelledby="carrierEight" data-parent="#accordionHyna3">
+                                                        <div class="card-body">
+                                                            Vestibulum ultrices ut lorem duis, eu ipsum orci dictum. Et ac a sapien bibendum suspendisse eget, pulvinar est pellentesget elit nec pretium ipsum, tellus cubilia velit. Consectetu nisl amet curabitur ipsum erat porta.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Single Faq -->
+                                                <div class="card">
+                                                    <div class="card-header" id="carrierNine">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsecarrier9" aria-expanded="false" aria-controls="collapsecarrier9">
+                                                                What are your favorite books?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapsecarrier9" class="collapse" aria-labelledby="carrierNine" data-parent="#accordionHyna3">
+                                                        <div class="card-body">
+                                                            Vestibulum ultrices ut lorem duis, eu ipsum orci dictum. Et ac a sapien bibendum suspendisse eget, pulvinar est pellentesget elit nec pretium ipsum, tellus cubilia velit. Consectetu nisl amet curabitur ipsum erat porta.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- End Accordion -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Tab Carrier -->
+                        <!-- Start Tab Support -->
+                        <div class="tab-pane fade" id="pills-support" role="tabpanel" aria-labelledby="pills-support-tab">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="faq-left">
+                                        <div class="faq-accordion">
+                                            <div class="accordion" id="accordionHyna4">
+                                                <!-- Single Faq -->
+                                                <div class="card">
+                                                    <div class="card-header" id="supportOne">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsesupport1" aria-expanded="true" aria-controls="collapsesupport1">
+                                                                Which do you like better, beer or wine?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapsesupport1" class="collapse" aria-labelledby="supportOne" data-parent="#accordionHyna4">
+                                                        <div class="card-body">
+                                                            Ligula posuere mauris. Nulla vel magnis lorem ipsum maunostrud ornare mus cum fugit eos mi. Tortor fringilla lectus fringilla aliquam, quis leo tcunt rutrum ultricies ipsum aliquet dapibus.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Single Faq -->
+                                                <div class="card">
+                                                    <div class="card-header" id="supportTwo">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsesupport2" aria-expanded="false" aria-controls="collapsesupport2">
+                                                                Have you ever been to Africa?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapsesupport2" class="collapse" aria-labelledby="supportTwo" data-parent="#accordionHyna4">
+                                                        <div class="card-body">
+                                                            Ligula posuere mauris. Nulla vel magnis lorem ipsum maunostrud ornare mus cum fugit eos mi. Tortor fringilla lectus fringilla aliquam, quis leo tcunt rutrum ultricies ipsum aliquet dapibus.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Single Faq -->
+                                                <div class="card">
+                                                    <div class="card-header" id="supportthree">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn-link" type="button" data-toggle="collapse" data-target="#collapsesupport3" aria-expanded="false" aria-controls="collapsesupport3">
+                                                                What is the strangest thing you've eaten?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapsesupport3" class="collapse show" aria-labelledby="supportthree" data-parent="#accordionHyna4">
+                                                        <div class="card-body">
+                                                            Ligula posuere mauris. Nulla vel magnis lorem ipsum maunostrud ornare mus cum fugit eos mi. Tortor fringilla lectus fringilla aliquam, quis leo tcunt rutrum ultricies ipsum aliquet dapibus.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Single Faq -->
+                                                <div class="card">
+                                                    <div class="card-header" id="supportFour">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsesupport4" aria-expanded="false" aria-controls="collapsesupport4">
+                                                                Have you ever been skiing?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapsesupport4" class="collapse" aria-labelledby="supportFour" data-parent="#accordionHyna4">
+                                                        <div class="card-body">
+                                                            Ligula posuere mauris. Nulla vel magnis lorem ipsum maunostrud ornare mus cum fugit eos mi. Tortor fringilla lectus fringilla aliquam, quis leo tcunt rutrum ultricies ipsum aliquet dapibus.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Single Faq -->
+                                                <div class="card">
+                                                    <div class="card-header" id="supportFive">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsesupport5" aria-expanded="false" aria-controls="collapsesupport5">
+                                                                If you won the lottery, what would you buy?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapsesupport5" class="collapse" aria-labelledby="supportFive" data-parent="#accordionHyna4">
+                                                        <div class="card-body">
+                                                            Ligula posuere mauris. Nulla vel magnis lorem ipsum maunostrud ornare mus cum fugit eos mi. Tortor fringilla lectus fringilla aliquam, quis leo tcunt rutrum ultricies ipsum aliquet dapibus.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- End Accordion -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="faq-right">
+                                        <div class="faq-accordion">
+                                            <div class="accordion" id="accordionHyna5">
+                                                <!-- Single Faq -->
+                                                <div class="card">
+                                                    <div class="card-header" id="supportSix">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn-link" type="button" data-toggle="collapse" data-target="#collapsesupport6" aria-expanded="true" aria-controls="collapsesupport6">
+                                                                Have you ever jumped out of a plane?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapsesupport6" class="collapse show" aria-labelledby="supportSix" data-parent="#accordionHyna5">
+                                                        <div class="card-body">
+                                                            Vestibulum ultrices ut lorem duis, eu ipsum orci dictum. Et ac a sapien bibendum suspendisse eget, pulvinar est pellentesget elit nec pretium ipsum, tellus cubilia velit. Consectetu nisl amet curabitur ipsum erat porta.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Single Faq -->
+                                                <div class="card">
+                                                    <div class="card-header" id="supportSeven">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsesupport7" aria-expanded="false" aria-controls="collapsesupport7">
+                                                                Do you have any tattoos or piercings?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapsesupport7" class="collapse" aria-labelledby="supportSeven" data-parent="#accordionHyna5">
+                                                        <div class="card-body">
+                                                            Vestibulum ultrices ut lorem duis, eu ipsum orci dictum. Et ac a sapien bibendum suspendisse eget, pulvinar est pellentesget elit nec pretium ipsum, tellus cubilia velit. Consectetu nisl amet curabitur ipsum erat porta.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Single Faq -->
+                                                <div class="card">
+                                                    <div class="card-header" id="supportEight">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsesupport8" aria-expanded="false" aria-controls="collapsesupport8">
+                                                                What is your favorite vacation?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapsesupport8" class="collapse" aria-labelledby="supportEight" data-parent="#accordionHyna5">
+                                                        <div class="card-body">
+                                                            Vestibulum ultrices ut lorem duis, eu ipsum orci dictum. Et ac a sapien bibendum suspendisse eget, pulvinar est pellentesget elit nec pretium ipsum, tellus cubilia velit. Consectetu nisl amet curabitur ipsum erat porta.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Single Faq -->
+                                                <div class="card">
+                                                    <div class="card-header" id="supportNine">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsesupport9" aria-expanded="false" aria-controls="collapsesupport9">
+                                                                What are your favorite books?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapsesupport9" class="collapse" aria-labelledby="supportNine" data-parent="#accordionHyna5">
+                                                        <div class="card-body">
+                                                            Vestibulum ultrices ut lorem duis, eu ipsum orci dictum. Et ac a sapien bibendum suspendisse eget, pulvinar est pellentesget elit nec pretium ipsum, tellus cubilia velit. Consectetu nisl amet curabitur ipsum erat porta.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- End Accordion -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Tab Support -->
+                        <!-- Start Tab Payment -->
+                        <div class="tab-pane fade" id="pills-pay" role="tabpanel" aria-labelledby="pills-pay-tab">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="faq-left">
+                                        <div class="faq-accordion">
+                                            <div class="accordion" id="accordionHyna6">
+                                                <!-- Single Faq -->
+                                                <div class="card">
+                                                    <div class="card-header" id="paymentOne">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsepay1" aria-expanded="true" aria-controls="collapsepay1">
+                                                                Which do you like better, beer or wine?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapsepay1" class="collapse" aria-labelledby="paymentOne" data-parent="#accordionHyna6">
+                                                        <div class="card-body">
+                                                            Ligula posuere mauris. Nulla vel magnis lorem ipsum maunostrud ornare mus cum fugit eos mi. Tortor fringilla lectus fringilla aliquam, quis leo tcunt rutrum ultricies ipsum aliquet dapibus.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Single Faq -->
+                                                <div class="card">
+                                                    <div class="card-header" id="paymentTwo">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsepay2" aria-expanded="false" aria-controls="collapsepay2">
+                                                                Have you ever been to Africa?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapsepay2" class="collapse" aria-labelledby="paymentTwo" data-parent="#accordionHyna6">
+                                                        <div class="card-body">
+                                                            Ligula posuere mauris. Nulla vel magnis lorem ipsum maunostrud ornare mus cum fugit eos mi. Tortor fringilla lectus fringilla aliquam, quis leo tcunt rutrum ultricies ipsum aliquet dapibus.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Single Faq -->
+                                                <div class="card">
+                                                    <div class="card-header" id="paymentThree">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn-link" type="button" data-toggle="collapse" data-target="#collapsepay3" aria-expanded="false" aria-controls="collapsepay3">
+                                                                What is the strangest thing you've eaten?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapsepay3" class="collapse show" aria-labelledby="paymentThree" data-parent="#accordionHyna6">
+                                                        <div class="card-body">
+                                                            Ligula posuere mauris. Nulla vel magnis lorem ipsum maunostrud ornare mus cum fugit eos mi. Tortor fringilla lectus fringilla aliquam, quis leo tcunt rutrum ultricies ipsum aliquet dapibus.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Single Faq -->
+                                                <div class="card">
+                                                    <div class="card-header" id="paymentFour">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsepay4" aria-expanded="false" aria-controls="collapsepay4">
+                                                                Have you ever been skiing?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapsepay4" class="collapse" aria-labelledby="paymentFour" data-parent="#accordionHyna6">
+                                                        <div class="card-body">
+                                                            Ligula posuere mauris. Nulla vel magnis lorem ipsum maunostrud ornare mus cum fugit eos mi. Tortor fringilla lectus fringilla aliquam, quis leo tcunt rutrum ultricies ipsum aliquet dapibus.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Single Faq -->
+                                                <div class="card">
+                                                    <div class="card-header" id="paymentFive">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsepay5" aria-expanded="false" aria-controls="collapsepay5">
+                                                                If you won the lottery, what would you buy?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapsepay5" class="collapse" aria-labelledby="paymentFive" data-parent="#accordionHyna6">
+                                                        <div class="card-body">
+                                                            Ligula posuere mauris. Nulla vel magnis lorem ipsum maunostrud ornare mus cum fugit eos mi. Tortor fringilla lectus fringilla aliquam, quis leo tcunt rutrum ultricies ipsum aliquet dapibus.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- End Accordion -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-lg-6">
+                                    <div class="faq-right">
+                                        <div class="faq-accordion">
+                                            <div class="accordion" id="accordionHyna7">
+                                                <!-- Single Faq -->
+                                                <div class="card">
+                                                    <div class="card-header" id="paymentSix">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn-link" type="button" data-toggle="collapse" data-target="#collapsepay6" aria-expanded="true" aria-controls="collapsepay6">
+                                                                Have you ever jumped out of a plane?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapsepay6" class="collapse show" aria-labelledby="paymentSix" data-parent="#accordionHyna7">
+                                                        <div class="card-body">
+                                                            Vestibulum ultrices ut lorem duis, eu ipsum orci dictum. Et ac a sapien bibendum suspendisse eget, pulvinar est pellentesget elit nec pretium ipsum, tellus cubilia velit. Consectetu nisl amet curabitur ipsum erat porta.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Single Faq -->
+                                                <div class="card">
+                                                    <div class="card-header" id="paymentSeven">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsepay7" aria-expanded="false" aria-controls="collapsepay7">
+                                                                Do you have any tattoos or piercings?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapsepay7" class="collapse" aria-labelledby="paymentSeven" data-parent="#accordionHyna7">
+                                                        <div class="card-body">
+                                                            Vestibulum ultrices ut lorem duis, eu ipsum orci dictum. Et ac a sapien bibendum suspendisse eget, pulvinar est pellentesget elit nec pretium ipsum, tellus cubilia velit. Consectetu nisl amet curabitur ipsum erat porta.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Single Faq -->
+                                                <div class="card">
+                                                    <div class="card-header" id="paymentEight">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsepay8" aria-expanded="false" aria-controls="collapsepay8">
+                                                                What is your favorite vacation?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapsepay8" class="collapse" aria-labelledby="paymentEight" data-parent="#accordionHyna7">
+                                                        <div class="card-body">
+                                                            Vestibulum ultrices ut lorem duis, eu ipsum orci dictum. Et ac a sapien bibendum suspendisse eget, pulvinar est pellentesget elit nec pretium ipsum, tellus cubilia velit. Consectetu nisl amet curabitur ipsum erat porta.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Single Faq -->
+                                                <div class="card">
+                                                    <div class="card-header" id="paymentNine">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsepay9" aria-expanded="false" aria-controls="collapsepay9">
+                                                                What are your favorite books?
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div id="collapsepay9" class="collapse" aria-labelledby="paymentNine" data-parent="#accordionHyna7">
+                                                        <div class="card-body">
+                                                            Vestibulum ultrices ut lorem duis, eu ipsum orci dictum. Et ac a sapien bibendum suspendisse eget, pulvinar est pellentesget elit nec pretium ipsum, tellus cubilia velit. Consectetu nisl amet curabitur ipsum erat porta.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- End Accordion -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>*@
+                        <!-- End Tab Payment -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

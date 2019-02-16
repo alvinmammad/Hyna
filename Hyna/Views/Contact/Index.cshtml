@@ -1,0 +1,77 @@
+﻿@model List<Setting>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    <section class="contact-area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="google-map">
+                        <div id="map" class="map-cont"></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-address">
+                        <div class="contact-single">
+                            <h4>Address</h4>
+                            <p>@Model.First().Address</p>
+                        </div>
+                        <div class="contact-single">
+                            <h4>Email</h4>
+                            @foreach (var email in Model)
+                            {
+                                <p>
+                                    <a href="#">@email.Email</a>
+                                </p>
+                            }
+
+                           
+                        </div>
+                        <div class="contact-single">
+                            <h4>Phone Number</h4>
+                            <p>
+                                @foreach (var phone in Model)
+                                {
+                                    <a href="#">@phone.Phone</a>
+                                }
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-lg-8">
+                    <div class="contact-form">
+                        <h3>Send Message</h3>
+                        <form action="mail.php" method="POST" id="ajax-contact">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input type="text" name="name" id="name" class="form-control" placeholder="Name">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" name="tel" id="tel" class="form-control" placeholder="Phone">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="country" id="country" class="form-control" placeholder="Country">
+                                </div>
+                                <div class="form-group">
+                                    <textarea name="message" id="message" class="form-control" placeholder="Message"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <p class="form-messages"></p>
+                                    <button type="submit" class="btn">Send Message</button>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   

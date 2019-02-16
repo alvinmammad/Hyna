@@ -1,0 +1,75 @@
+﻿@model List<Service>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    <section class="service-details-area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-8">
+                    <div class="service-details-content">
+                        <img src="~/Areas/Admin/Pics/@Model.First().Photo" alt="Service">
+                        <h3>@Model.First().Name</h3>
+                        <p>@Model.First().Text</p>
+                        <ul class="service-details-list list-style">
+                            @foreach (var detail in Model)
+                            {
+                                <li>
+                                    <div class="service-details-item">
+                                        <h4>@detail.Name</h4>
+                                        <p>@detail.Description</p>
+                                    </div>
+                                </li>
+                            }
+
+
+                        </ul>
+                        <div class="services-benefit">
+                            <h4>@Model.First().Name</h4>
+                            <p>@Model.First().Text</p>
+                        </div>
+                        <!-- Start Next Previous Button -->
+                        <div class="nextprev-area">
+                            <a href="#">Previous</a>
+                            <a href="#">Next</a>
+                        </div>
+                        <!-- End Next Previous Button -->
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-4">
+                    <div class="aside-area">
+                        <div class="blog-search">
+                            <!-- Start search option -->
+                            <form action="#">
+                                <div class="blog-search-option">
+                                    <input class="input-search" type="text" placeholder="Search">
+                                    <button class="button" type="submit">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </form>
+                            <!-- End search option -->
+                        </div>
+                        <div class="aside-content aside-service">
+                            <h4>All Services</h4>
+                            <ul class="aside-list list-style">
+
+                                @foreach (var cat in Model)
+                                {
+                                    <li>
+                                    <a href="#">@cat.Category.Name</a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ 

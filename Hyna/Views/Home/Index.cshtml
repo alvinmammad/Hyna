@@ -1,0 +1,232 @@
+﻿@model Hyna.ViewModel.Viewmodel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<section class="marketing-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-5">
+                <div class="marketing-content-left">
+                    <h2>All Kind of Digital Marketing</h2>
+                    <p>Consequat ac lacus diam lacus, mauris lestinunc vestibulumes. ciosqu orci. Tortor efntum lectros et mi enim, elisaen,non et morbi et vestibulum malesuada digital marketing.</p>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-7">
+                <div class="marketing-content-right">
+                    <div class="marketing-content">
+                        <span class="flaticon-analytics"></span>
+                        <h3>Keyword Research</h3>
+                        <p>Consectetuer vel id vel vaongue vulputate, odio curabiturviver interdum adipiscing sceler</p>
+                    </div>
+                    <div class="marketing-content">
+                        <span class="flaticon-promotion"></span>
+                        <h3>Social Marketing</h3>
+                        <p>Consectetuer vel id vel vaongue vulputate, odio curabiturviver interdum adipiscing sceler</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="services-area section-padding">
+    <div class="shape-1">
+        <img src="~/Content/hyna/img/service/8.png" alt="img">
+    </div>
+    <div class="shape-2">
+        <img src="~/Content/hyna/img/service/9.png" alt="img">
+    </div>
+    <div class="shape-3">
+        <img src="~/Content/hyna/img/service/10.png" alt="img">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="services-title">
+                    <h4>Get Your Services</h4>
+                    <h2>Our Services</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="services-block">
+                    <!-- Single service Item -->
+                    @foreach (var service in Model.Services)
+                    {
+                        <div class="services-item">
+                            <div class="services-icon">
+                                <img src="~/Areas/Admin/Pics/@service.Icon" alt="Service">
+                            </div>
+                            <h3>@service.Category.Name</h3>
+                            <p>@service.Description</p>
+                        </div>
+                    }
+
+                    <!-- Single service Item -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="project-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="project-title">
+                    <h4>Awesome Work</h4>
+                    <h2>Our Latest Project</h2>
+                    <h5><a href="#">See All Project</a></h5>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="project">
+                    @foreach (var project in Model.Projects)
+                    {
+                        int count = 0;
+                        string v = ",";
+                        <div class="project-item">
+                            <a class="venobox vbox-item" data-gall="myGallery" data-title="Project" href="~/Areas/Admin/Pics/@project.Photo">
+                                <img src="~/Areas/Admin/Pics/@project.Photo" alt="Project">
+                            </a>
+                            <div class="project-item-hover">
+                                <h4><a href="#">@project.Name</a></h4>
+                                <span>
+                                    @foreach (var projectCat in project.ProjectCategories.ToList())
+                                    {
+                                        @projectCat.Category.Name
+                                        count++;
+                                        if (project.ProjectCategories.ToList().Count != count)
+                                        {
+                                            @v
+                                        }
+                                    }
+                                </span>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<section class="faq-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="faq-title">
+                    <h2>Some common question about us</h2>
+                </div>
+                <div class="faq-info">
+                    <!-- Single FAQ -->
+                    @foreach (var faq in Model.FAQs)
+                    {
+                        <div class="faq-single">
+                            <div class="faq-number">
+                                <span>@faq.ID.ToString()</span>
+                            </div>
+                            <div class="faq-content">
+                                <h4>@faq.Question</h4>
+                                <p>@faq.Answer</p>
+                            </div>
+                        </div>
+                    }
+
+                    <!-- Single FAQ -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="counter-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="counter-content">
+                    <div class="counter-block">
+                        @foreach (var counter in Model.Facts)
+                        {
+                            <div class="counter-content-single">
+                                <h2><span class="timer" data-from="1" data-to="450" data-speed="5000" data-refresh-interval="50">@counter.Key</span></h2>
+                                <h4>@counter.Value</h4>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="blog-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="blog-title">
+                    <h4>Latest Blog</h4>
+                    <h2>Our Blog and Tips</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="blog">
+                    <!-- Single Blog -->
+                    @foreach (var blog in Model.Blogs)
+                    {
+                        <div class="single-news">
+                            <div class="blog-content">
+                                <h3><a href="#">@blog.Title</a></h3>
+                                <p>@blog.Description</p>
+                                <ul class="blog-meta list-style">
+                                    <li><a href="#"><img src="~/Areas/Admin/Pics/@blog.Author.Photo" alt="img">@blog.Author.Fullname</a></li>
+                                    <li><a href="#">@blog.Date.ToString("dd MMMM yyyy")</a></li>
+                                    <li><a href="#"><i class="far fa-comment"></i>@blog.ID</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    }
+
+                    <!-- Single Blog -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="client-logo-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="client-logo-slider owl-carousel owl-theme">
+                    @foreach (var partner in Model.Partners)
+                    {
+                        <div class="client-logo-single">
+                            <img src="~/Areas/Admin/Pics/@partner.Logo" alt="Logo">
+                        </div>
+                    }
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

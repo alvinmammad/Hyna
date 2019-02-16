@@ -1,0 +1,88 @@
+
+$main_color: #a19f9f;
+
+$title_heading_color: #292a2e;
+
+$white:#ffffff;
+
+$primary_color: #f057bc;
+
+$secondary_color: #fbc820;
+
+
+
+
+
+
+
+$sub_title_heading_color: #0652cf;
+
+$bg_white_color: #ffffff;
+
+$section_background_color: #f9f9f9;
+
+$background_color: #f2f4fc;
+
+
+
+
+
+$color_one: #e0e1fc;
+
+$color_two: #f02655;
+
+$color_three: #fe484c;
+
+$color_four: #fd5979;
+
+$color_five: #3cdb7f;
+
+$color_six: #ffba34;
+
+$border_color: #e5e5e5;
+
+.main_color {
+  color: $main_color;
+}    
+.title_heading_color {
+  color: $title_heading_color;
+}     
+.sub_title_heading_color {
+  color: $sub_title_heading_color;
+}   
+.section_background_color {
+  background-color: $section_background_color;
+}   
+.background_color {
+  background-color: $background_color;
+}
+.white {
+  color: $white;
+}
+.primary_color {
+  color: $primary_color;
+}
+.secondary_color {
+  color: $secondary_color;
+}
+.color_one {
+  color: $color_one;
+}
+.color_two {
+  color: $color_two;
+}
+.color_three {
+  color: $color_three;
+}
+.color_four {
+  color: $color_four;
+}
+.color_five {
+  color: $color_five;
+}
+.color_six {
+  color: $color_six;
+}
+.border_color {
+  color: $border_color;
+}

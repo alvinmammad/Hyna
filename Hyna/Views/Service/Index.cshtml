@@ -1,0 +1,73 @@
+﻿@model List<Service>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    <section class="services-area section-padding">
+        <div class="shape-1">
+            <img src="~/Content/hyna/img/service/11.png" alt="img">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="services-block">
+                        <!-- Single service Item -->
+                        @foreach (var service in Model)
+                        {
+                            <div class="services-item">
+                                <div class="services-icon">
+                                    <img src="~/Areas/Admin/Pics/@service.Icon" alt="Service">
+                                </div>
+                                <h3>@service.Name</h3>
+                                <p>@service.Description</p>
+                            </div>
+                        }
+
+                        <!-- Single service Item -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Services Area -->
+    <!-- Start Counter Area -->
+    <section class="counter-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="counter-content">
+                        <div class="counter-block">
+                            <div class="counter-content-single">
+                                <h2><span class="timer" data-from="1" data-to="450" data-speed="5000" data-refresh-interval="50">450</span></h2>
+                                <h4>Project Done</h4>
+                            </div>
+                            <div class="counter-content-single">
+                                <h2>
+                                    <span class="timer" data-from="1" data-to="65" data-speed="5000" data-refresh-interval="50">65</span>
+                                    <span class="small">M</span>
+                                </h2>
+                                <h4>Happy Customer</h4>
+                            </div>
+                            <div class="counter-content-single">
+                                <h2><span class="timer" data-from="1" data-to="829" data-speed="5000" data-refresh-interval="50">829</span></h2>
+                                <h4>Office Branch</h4>
+                            </div>
+                            <div class="counter-content-single">
+                                <h2>
+                                    <span class="timer" data-from="1" data-to="22" data-speed="5000" data-refresh-interval="50">22</span>
+                                    <span class="small">Y</span>
+                                </h2>
+                                <h4>Experience</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Counter Area -->
+    <!-- Start Footer Area -->
+   

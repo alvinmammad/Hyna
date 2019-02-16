@@ -1,0 +1,84 @@
+﻿@model Hyna.ViewModel.Viewmodel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="creative-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-6">
+                <div class="creative-content">
+                    <h2>@Model.Abouts.First().Title</h2>
+                    <p>@Model.Abouts.First().Text</p>
+                    <a class="btn" href="#">Get Services</a>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-6">
+                <div class="creative-image-block">
+                    <div class="creative-image">
+                        <img src="~/Areas/Admin/Pics/@Model.Abouts.First().Photo" alt="img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Creative Area -->
+<!-- Start Counter Area -->
+<section class="counter-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="counter-content">
+                    <div class="counter-block">
+                        @foreach (var counter in Model.Facts)
+                        {
+                            <div class="counter-content-single">
+                                <h2>
+                                    <span class="timer" data-from="1" data-to="22" data-speed="5000" data-refresh-interval="50">@counter.Key</span>
+                                   
+                                </h2>
+                                <h4>@counter.Value</h4>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Counter Area -->
+<!-- Start Info Area -->
+<!-- End Info Area -->
+<!-- Start Mission Area -->
+<!-- End Mission Area -->
+<!-- Start Pricing Area -->
+<!-- End Pricing Area -->
+<!-- Start Client Logo Area -->
+<div class="client-logo-area pt-140">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="client-logo-slider owl-carousel owl-theme">
+                    @foreach (var partner in Model.Partners.ToList())
+                    {
+                        <div class="client-logo-single">
+                            <img src="~/Areas/Admin/Pics/@partner.Logo" alt="Logo">
+                        </div>
+                    }
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Client Logo Area -->
+<!-- Start About Contact Area -->
+<!-- End About Contact Area -->
+<!-- Start Blog Area -->
+<!-- End Blog Area -->
+<!-- Start Footer Area -->

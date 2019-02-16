@@ -1,0 +1,53 @@
+﻿
+@model Hyna.ViewModel.Viewmodel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="project-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="project">
+                    @foreach (var project in Model.Projects)
+                    {
+                        int count = 0;
+                        string v = ",";
+                        <div class="project-item">
+                            <a class="venobox vbox-item" data-gall="myGallery" data-title="Project" href="~/Areas/Admin/Pics/@project.Photo">
+                                <img src="~/Areas/Admin/Pics/@project.Photo" alt="Project">
+                            </a>
+                            <div class="project-item-hover">
+                                <h4><a href="#">@project.Name</a></h4>
+                                <span>
+                                    @foreach (var item in project.ProjectCategories.ToList())
+                                    {
+                                        @item.Category.Name
+                                        count++;
+                                        if (project.ProjectCategories.ToList().Count != count)
+                                        {
+                                            @v
+                                        }
+                                    }
+
+                                </span>
+
+
+                            </div>
+                        </div>
+                    }
+
+
+                </div>
+                <!-- Start Next Page Button -->
+                <div class="next-page">
+                    <a class="btn" href="#">Next Page</a>
+                </div>
+                <!-- End Next Page Button -->
+            </div>
+        </div>
+    </div>
+</section>

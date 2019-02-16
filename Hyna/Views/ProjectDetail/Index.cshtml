@@ -1,0 +1,48 @@
+﻿@model List<Project>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    <!-- Start Project Details Area -->
+    <section class="project-details section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-6">
+                    <div class="project-details-content">
+                        <h3>@Model.First().Keyword</h3>
+                        <p>@Model.First().Text</p>
+                        <ul class="project-details-list list-style">
+                            @foreach (var list in Model)
+                            {
+                                <li>@list.ProjectList</li>
+                            }
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-6">
+                    <div class="project-details-image">
+                        <img src="~/Areas/Admin/Pics/@Model.First().Photo" alt="Project">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="project-keyword">
+                        @foreach (var keyword in Model)
+                        {
+                            <h4>@keyword.Keyword</h4>
+                            <p>@keyword.Text</p>
+                        }
+
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Project Details Area -->
+    <!-- Start Footer Area -->
+   
